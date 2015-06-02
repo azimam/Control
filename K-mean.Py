@@ -2,6 +2,7 @@
 # clustering using pylab Kmean clustering
 # by Maryam , Azima , Mohan
 # HW 3 , Data Analytics on Open Cloud EE 5243-004
+# Fall 2013
 #*************************************************************************
 
 from pylab import imread,imshow,figure,show,subplot
