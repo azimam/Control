@@ -1,0 +1,33 @@
+import PyPDF2 
+pdfFileObj = open(rb"C:\Users\azima.m\Desktop\Test.pdf", encoding="UTF-8")
+
+pdfReader = PyPDF2.PdfFileReader(pdfFileObj,strict=False) 
+if pdfReader.isEncrypted:
+    pdfReader.decrypt("")
+print(pdfReader.numPages) 
+pageObj = pdfReader.getPage(0) 
+Text=pageObj.extractText()
+print(pageObj.extractText()) 
+pdfFileObj.close() 
+
+Counts={}
+bigcount=None
+bigword=None
+
+Words = []
+Words=Text.split()
+#for line in handle:
+  #stripped_line = line.strip()
+  #line_list = stripped_line.split()
+  #Words.append(line_list)
+print(Words)
+  
+for word in Words:
+    Counts[word]=Counts.get(word,0)+1
+
+    if bigcount==None or Counts[word]>bigcount:
+        bigword=word
+        bigcount=Counts[word]
+
+print (bigword,bigcount)
+print (len(Words))
